@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'http://localhost:4000';
+console.log("SERVER_URL:", SERVER_URL);
 
 export default function HomePage() {
   const navigate = useNavigate();

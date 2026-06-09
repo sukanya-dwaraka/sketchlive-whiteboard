@@ -14,14 +14,14 @@ const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
 
 const io = new Server(server, {
   cors: {
-    origin: [FRONTEND_URL, 'http://localhost:5173', 'http://localhost:3000'],
+    origin: [FRONTEND_URL, 'http://localhost:5173', 'https://sketchlive-whiteboard-1.onrender.com'],
     methods: ['GET', 'POST'],
     credentials: true,
   },
 });
 
 // Middleware
-app.use(cors({ origin: [FRONTEND_URL, 'http://localhost:5173', 'http://localhost:3000'], credentials: true }));
+app.use(cors({ origin: [FRONTEND_URL, 'http://localhost:5173', 'https://sketchlive-whiteboard-1.onrender.com'], credentials: true }));
 app.use(express.json());
 
 // Routes
@@ -42,6 +42,7 @@ if (MONGO_URI) {
 
 // Socket.IO handlers
 setupSocketHandlers(io);
+
 
 const PORT = process.env.PORT || 4000;
 server.listen(PORT, () => {
